@@ -152,6 +152,12 @@ createAppHandlers <- function(httpHandlers, serverFuncSource) {
       reactLogHandler
     )),
     ws = function(ws) {
+
+      message('got here!')
+
+      print(names(ws$request))
+
+
       if (!checkSharedSecret(ws$request$HTTP_SHINY_SHARED_SECRET)) {
         ws$close()
         return(TRUE)
